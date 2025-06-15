@@ -5,7 +5,7 @@ import lombok.*;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class Student {
+public final class Student {
     private long id;
     private int age;
     private String name;

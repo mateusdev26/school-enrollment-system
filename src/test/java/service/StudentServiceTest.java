@@ -4,6 +4,8 @@ import domain.Student;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLException;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @Log4j2
@@ -15,9 +17,9 @@ class StudentServiceTest {
     }
 
     @Test
-    public void ShouldNotThrowsSQLExceptionInFindAll() {
-        assertDoesNotThrow(StudentService::findAll, "Didn't threw a SQLException");
-       /// StudentService.findAll().forEach(log::info);
+    public void ShouldNotThrowsSQLExceptionInFindAll() throws SQLException {
+        assertDoesNotThrow(()->StudentService.findAll(), "Didn't threw a SQLException");
+       StudentService.findAll().forEach(log::info);
     }
 
     @Test
