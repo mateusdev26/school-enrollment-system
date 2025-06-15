@@ -1,0 +1,13 @@
+services:
+  mysql-db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ASD123as  # Altere para sua senha
+      MYSQL_DATABASE: mysql        # Nome do banco de dados
+    ports:
+      - "3306:3306"                    # Porta padrão do MySQL
+    volumes:
+      - mysql-data:/var/lib/mysql     # Persistência
+
+volumes:
+  mysql-data:
